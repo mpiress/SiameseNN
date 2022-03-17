@@ -46,6 +46,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import OrdinalEncoder
 
 from sklearn import preprocessing
+from pathlib import Path
 
 
 class SIAMESERN():
@@ -218,6 +219,9 @@ class SIAMESERN():
         
 
     def train(self, dataset):
+
+        Path("buffer").mkdir(parents=True, exist_ok=True)
+
         checkpoint = os.path.dirname(os.path.abspath(__file__)) + os.sep + "buffer/model_"+str(self.__nhidden[0])+'_'+str(self.__ext)+"_"+str(self.__batch_size)+".h5"
         history    = None
 
